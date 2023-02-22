@@ -4,12 +4,12 @@ import br.com.testando.api.apirest.model.ClientesLogin;
 import br.com.testando.api.apirest.model.Clientes;
 import br.com.testando.api.apirest.repository.ClientesRepository;
 import br.com.testando.api.apirest.service.ClientesService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,7 +18,8 @@ import java.util.Optional;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ClientesController {
 
-    @Autowired ClientesService clientesService;
+    @Autowired
+    private ClientesService clientesService;
 
     @Autowired
     private ClientesRepository clientesRepository;
@@ -32,14 +33,14 @@ public class ClientesController {
     @GetMapping("/{id}")
     public ResponseEntity<Clientes> getById(@PathVariable Long id){
         return clientesRepository.findById(id)
-                .map(resposta -> ResponseEntity.ok(resposta))
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping("/login")
     public ResponseEntity<ClientesLogin> login(@RequestBody Optional<ClientesLogin> clientesLogin){
         return clientesService.autenticarClientes(clientesLogin)
-                .map(resposta -> ResponseEntity.ok(resposta))
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
 

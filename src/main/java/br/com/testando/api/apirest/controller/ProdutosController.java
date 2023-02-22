@@ -4,13 +4,13 @@ package br.com.testando.api.apirest.controller;
 import br.com.testando.api.apirest.model.Produtos;
 import br.com.testando.api.apirest.repository.CategoriaRepository;
 import br.com.testando.api.apirest.repository.ProdutosRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 

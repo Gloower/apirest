@@ -10,13 +10,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.nio.charset.Charset;
-import java.util.Base64;
+import java.nio.charset.StandardCharsets;
+import org.apache.tomcat.util.codec.binary.Base64;
+
 import java.util.Optional;
 
 @Service
 public class ClientesService {
 
-    @Autowired
+    @Autowired(required = true)
     private ClientesRepository clientesRepository;
 
     public Optional<Clientes> cadastrarClientes(Clientes clientes){
@@ -76,10 +78,10 @@ throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Usuario ou senha inv
         return encoder.matches(senhaDigitada, senhaBanco);
     }
 
-    private String gerarBasicToken(String email, String password){
+    private String gerarBasicToken(String email, String password) {
         String estrutura = email + ":" + password;
-        byte[] estruturaBase64 = Base64.getDecoder().decode(
+        byte[] estruturaBase64 = Base64.encodeBase64(
                 estrutura.getBytes(Charset.forName("US-ASCII")));
-        return "Basic" + new String(estruturaBase64);
+        return "Basic " + new String(estruturaBase64);
     }
 }
