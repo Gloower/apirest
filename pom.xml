@@ -50,6 +50,7 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
+			<version>42.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.mail</groupId>

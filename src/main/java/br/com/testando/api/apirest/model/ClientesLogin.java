@@ -1,6 +1,6 @@
 package br.com.testando.api.apirest.model;
 
-public class ClienteLogin {
+public class ClientesLogin {
     private long id;
     private String nome;
     private String email;
