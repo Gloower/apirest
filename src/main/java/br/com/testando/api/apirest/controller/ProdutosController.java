@@ -53,7 +53,6 @@ public class ProdutosController {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id){
