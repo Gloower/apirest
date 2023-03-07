@@ -3,7 +3,7 @@ package br.com.testando.api.apirest.model;
 public class ClientesLogin {
     private long id;
     private String nome;
-    private String email;
+    public String email;
     private String senha;
     private String token;
 

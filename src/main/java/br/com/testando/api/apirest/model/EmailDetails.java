@@ -5,9 +5,10 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EmailDetails {
+public class EmailDetails{
     private String recipient;
     private String msgBody;
     private String subject;
+
 
 }
