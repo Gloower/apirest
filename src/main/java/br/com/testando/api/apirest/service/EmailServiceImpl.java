@@ -17,6 +17,8 @@ import java.io.File;
 @Service
 public class EmailServiceImpl implements EmailService {
     @Autowired private JavaMailSender javaMailSender;
+
+    //Colocar o email no @Value caso ele não preencha sozinho
     @Value("${spring.mail.username}") private String sender;
 
     public String sendMailWithAttachment(EmailDetails emailDetails){
