@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmailController {
     @Autowired private EmailService emailService;
 
-    @PostMapping("/sendMail")
-    public String
-    sendEmail(@RequestBody EmailDetails emailDetails){
+    @PostMapping("/sendMailWithAttachment")
+    public String sendMailWithAttachment(
+            @RequestBody EmailDetails emailDetails)
+    {
         String status
-                = emailService.sendSimpleMail(emailDetails);
+                = emailService.sendMailWithAttachment(emailDetails);
+
         return status;
     }
 }
